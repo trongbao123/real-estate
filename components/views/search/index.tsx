@@ -9,7 +9,7 @@ export default function Search() {
     } = useSearch();
 
     return (
-        <DivStyled className='md:absolute relative top-[200px] w-[330px] mx-auto max-[320px]:!w-[330px] md:mx-[50px] md:top-[380px] lg:top-[480px] 2xl:top-[500px] 2xl:left-[450px] lg:left-[170px] z-[10000] h-auto flex flex-col lg:justify-normal md:justify-center justify-center text-center '>
+        <DivStyled className='md:absolute relative top-[200px] w-[330px] mx-auto max-[320px]:!w-[330px] md:mx-[50px] md:top-[380px] lg:top-[480px] 2xl:top-[500px] 2xl:left-[450px] lg:left-[80px] xl:left-[170px] z-[10000] h-auto flex flex-col lg:justify-normal md:justify-center justify-center text-center '>
             <div className='flex  justify-center md:justify-normal'>
                 <button
                     onClick={() => handleActive(0)}

@@ -17,7 +17,7 @@ export default function Invest(props: Props) {
         <div className={` p-[15px] mx-auto  bg-white relative flex flex-col justify-center shadow-[4px_4px_4px_rgba(0,0,0,0.15)] 
         min-[425px]:!right-[15px]  
         max-[360px]:!right-[0px]  
-        max-[320px]:!w-[200px]  
+        max-[320px]:!w-[290px]  
         lg:w-[800px] 
         md:h-[140px] md:mx-auto md:w-[690px]
         xl:w-[1000px] xl:right-[25px]
