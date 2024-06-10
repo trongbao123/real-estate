@@ -6,6 +6,7 @@ import SearchIcon from "@/icons/SearchIcon";
 import CloseIcon from "@/icons/CloseIcon";
 import DrawerIcon from "@/icons/DrawerIcon";
 import DrawerComponent from "./components/Drawer";
+import Seo from "../common/seo";
 
 export default function Layout({ children }: any) {
     const {
@@ -20,6 +21,7 @@ export default function Layout({ children }: any) {
 
     return (
         <>
+            <Seo title="Linkin vest" content="Linkin vest" />
             <div className="md:hidden bg-[#1868B3] w-full h-[80px] relative">
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-[14px] font-[600] text-white w-[330px] sm:w-full pt-3">
                     CÔNG TY CỔ PHẦN THƯƠNG MẠI TRỰC TUYẾN AN THỊNH PHÁT
