@@ -1,118 +1,78 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import Seo from "@/components/common/seo";
+import useHeader from "@/hooks/useHeader";
+import Logo from "@/icons/logo";
+import Image1 from "@/assets/img1.jpeg";
+import LogoHeader from "@/icons/LogoHeader";
+import SearchIcon from "@/icons/SearchIcon";
+import DrawerIcon from "@/icons/DrawerIcon";
+import Drawer from 'antd/lib/drawer';
+import CloseIcon from "@/icons/CloseIcon";
+import styled from 'styled-components';
+import dataMobileHeaderDrawer from "@/data/header";
+import IconFaceBook from "@/icons/IconFaceBook";
+import Header from "@/layout/header";
+import Search from "@/components/views/search";
+import TypicalProject from "@/components/views/typical-project";
+import carouselData from "@/data/carouselData";
 
-const inter = Inter({ subsets: ["latin"] });
+type Props = {
+  [key: string]: any
+}
+function Home(props: Props) {
+  const { carouselData, banner } = props || {};
 
-export default function Home() {
+  const {
+    active,
+    navItems,
+    handleActive,
+    showDrawer,
+    placement,
+    onClose,
+    openDrawer
+  } = useHeader({});
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <>
+      <Seo title="Linkin vest" content="Linkin vest" />
+      <Header />
+
+      <main>
+        <div className="relative">
+          <div className="absolute top-[30px] left-[5px] right-0 md:top-[188px] md:left-[250px] md:right-[220px] lg:left-[220px] lg:right-[200px] 2xl:left-[250px] text-[#ffff] z-[10000]">
+            <div className="flex flex-col text-center">
+              <h1 className="text-[40px] lg:text-[70px] font-[600]">BẤT ĐỘNG SẢN</h1>
+              <h3 className="text-[30px] lg:text-[40px] font-[600]">L I N K I N V E S T</h3>
+              <button className="bg-[#F7941D] text-[#FFFF] mt-[10px] w-[150px] h-[40px] mx-auto cursor-pointer">
+                TÌM HIỂU NGAY
+              </button>
+            </div>
+          </div>
+          <div className="absolute top-0 left-0 right-0 h-[700px] md:h-[500px] lg:h-[600px] 2xl:h-[620px] bg-[#004274] opacity-[50%] z-[1000] " />
+          <div className="absolute z-1 w-full h-[700px] md:h-[500px] lg:h-[600px]  left-0 2xl:h-[620px] 2xl:top-[0px] bg-cover bg-no-repeat">
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+              src={banner}
+              alt="Background Image"
+              layout="fill"
+              objectFit="cover"
+              loading="eager"
             />
-          </a>
+          </div>
         </div>
-      </div>
+        <Search />
+        <TypicalProject carouselData={carouselData} />
+      </main>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   );
 }
+
+Home.getInitialProps = async () => {
+  return {
+    carouselData: carouselData,
+    banner: Image1
+  };
+};
+
+export default Home;
